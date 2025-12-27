@@ -1,408 +1,426 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>kokopaka_overview.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <head>
+        <title>kokopaka_overview.md</title>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
+        <style>
+            /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+            /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
+            body {
+                font-family: var(
+                    --vscode-markdown-font-family,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe WPC",
+                    "Segoe UI",
+                    "Ubuntu",
+                    "Droid Sans",
+                    sans-serif
+                );
+                font-size: var(--vscode-markdown-font-size, 14px);
+                padding: 0 26px;
+                line-height: var(--vscode-markdown-line-height, 22px);
+                word-wrap: break-word;
+            }
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
+            #code-csp-warning {
+                position: fixed;
+                top: 0;
+                right: 0;
+                color: white;
+                margin: 16px;
+                text-align: center;
+                font-size: 12px;
+                font-family: sans-serif;
+                background-color: #444444;
+                cursor: pointer;
+                padding: 6px;
+                box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+            }
 
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
+            #code-csp-warning:hover {
+                text-decoration: none;
+                background-color: #007acc;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            }
 
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
+            body.scrollBeyondLastLine {
+                margin-bottom: calc(100vh - 22px);
+            }
 
-body.showEditorSelection .code-line {
-	position: relative;
-}
+            body.showEditorSelection .code-line {
+                position: relative;
+            }
 
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
+            body.showEditorSelection .code-active-line:before,
+            body.showEditorSelection .code-line:hover:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: -12px;
+                height: 100%;
+            }
 
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
+            body.showEditorSelection li.code-active-line:before,
+            body.showEditorSelection li.code-line:hover:before {
+                left: -30px;
+            }
 
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
+            .vscode-light.showEditorSelection .code-active-line:before {
+                border-left: 3px solid rgba(0, 0, 0, 0.15);
+            }
 
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
+            .vscode-light.showEditorSelection .code-line:hover:before {
+                border-left: 3px solid rgba(0, 0, 0, 0.4);
+            }
 
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+            .vscode-light.showEditorSelection .code-line .code-line:hover:before {
+                border-left: none;
+            }
 
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
+            .vscode-dark.showEditorSelection .code-active-line:before {
+                border-left: 3px solid rgba(255, 255, 255, 0.4);
+            }
 
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
+            .vscode-dark.showEditorSelection .code-line:hover:before {
+                border-left: 3px solid rgba(255, 255, 255, 0.6);
+            }
 
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+            .vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+                border-left: none;
+            }
 
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
+            .vscode-high-contrast.showEditorSelection .code-active-line:before {
+                border-left: 3px solid rgba(255, 160, 0, 0.7);
+            }
 
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
+            .vscode-high-contrast.showEditorSelection .code-line:hover:before {
+                border-left: 3px solid rgba(255, 160, 0, 1);
+            }
 
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+            .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+                border-left: none;
+            }
 
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
 
-a {
-	text-decoration: none;
-}
+            a {
+                text-decoration: none;
+            }
 
-a:hover {
-	text-decoration: underline;
-}
+            a:hover {
+                text-decoration: underline;
+            }
 
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
+            a:focus,
+            input:focus,
+            select:focus,
+            textarea:focus {
+                outline: 1px solid -webkit-focus-ring-color;
+                outline-offset: -1px;
+            }
 
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
+            hr {
+                border: 0;
+                height: 2px;
+                border-bottom: 2px solid;
+            }
 
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
+            h1 {
+                padding-bottom: 0.3em;
+                line-height: 1.2;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+            }
 
-h1, h2, h3 {
-	font-weight: normal;
-}
+            h1,
+            h2,
+            h3 {
+                font-weight: normal;
+            }
 
-table {
-	border-collapse: collapse;
-}
+            table {
+                border-collapse: collapse;
+            }
 
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
+            table > thead > tr > th {
+                text-align: left;
+                border-bottom: 1px solid;
+            }
 
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
+            table > thead > tr > th,
+            table > thead > tr > td,
+            table > tbody > tr > th,
+            table > tbody > tr > td {
+                padding: 5px 10px;
+            }
 
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
+            table > tbody > tr + tr > td {
+                border-top: 1px solid;
+            }
 
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
+            blockquote {
+                margin: 0 7px 0 5px;
+                padding: 0 16px 0 10px;
+                border-left-width: 5px;
+                border-left-style: solid;
+            }
 
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
+            code {
+                font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+                font-size: 1em;
+                line-height: 1.357em;
+            }
 
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
+            body.wordWrap pre {
+                white-space: pre-wrap;
+            }
 
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
+            pre:not(.hljs),
+            pre.hljs code > div {
+                padding: 16px;
+                border-radius: 3px;
+                overflow: auto;
+            }
 
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
+            pre code {
+                color: var(--vscode-editor-foreground);
+                tab-size: 4;
+            }
 
-/** Theming */
+            /** Theming */
 
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
+            .vscode-light pre {
+                background-color: rgba(220, 220, 220, 0.4);
+            }
 
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
+            .vscode-dark pre {
+                background-color: rgba(10, 10, 10, 0.4);
+            }
 
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
+            .vscode-high-contrast pre {
+                background-color: rgb(0, 0, 0);
+            }
 
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
+            .vscode-high-contrast h1 {
+                border-color: rgb(0, 0, 0);
+            }
 
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
+            .vscode-light table > thead > tr > th {
+                border-color: rgba(0, 0, 0, 0.69);
+            }
 
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
+            .vscode-dark table > thead > tr > th {
+                border-color: rgba(255, 255, 255, 0.69);
+            }
 
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
+            .vscode-light h1,
+            .vscode-light hr,
+            .vscode-light table > tbody > tr + tr > td {
+                border-color: rgba(0, 0, 0, 0.18);
+            }
 
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
+            .vscode-dark h1,
+            .vscode-dark hr,
+            .vscode-dark table > tbody > tr + tr > td {
+                border-color: rgba(255, 255, 255, 0.18);
+            }
+        </style>
 
-</style>
+        <style>
+            /* Tomorrow Theme */
+            /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+            /* Original theme - https://github.com/chriskempson/tomorrow-theme */
 
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+            /* Tomorrow Comment */
+            .hljs-comment,
+            .hljs-quote {
+                color: #8e908c;
+            }
 
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
+            /* Tomorrow Red */
+            .hljs-variable,
+            .hljs-template-variable,
+            .hljs-tag,
+            .hljs-name,
+            .hljs-selector-id,
+            .hljs-selector-class,
+            .hljs-regexp,
+            .hljs-deletion {
+                color: #c82829;
+            }
 
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
+            /* Tomorrow Orange */
+            .hljs-number,
+            .hljs-built_in,
+            .hljs-builtin-name,
+            .hljs-literal,
+            .hljs-type,
+            .hljs-params,
+            .hljs-meta,
+            .hljs-link {
+                color: #f5871f;
+            }
 
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
+            /* Tomorrow Yellow */
+            .hljs-attribute {
+                color: #eab700;
+            }
 
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
+            /* Tomorrow Green */
+            .hljs-string,
+            .hljs-symbol,
+            .hljs-bullet,
+            .hljs-addition {
+                color: #718c00;
+            }
 
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
+            /* Tomorrow Blue */
+            .hljs-title,
+            .hljs-section {
+                color: #4271ae;
+            }
 
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
+            /* Tomorrow Purple */
+            .hljs-keyword,
+            .hljs-selector-tag {
+                color: #8959a8;
+            }
 
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
+            .hljs {
+                display: block;
+                overflow-x: auto;
+                color: #4d4d4c;
+                padding: 0.5em;
+            }
 
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
+            .hljs-emphasis {
+                font-style: italic;
+            }
 
-.hljs-emphasis {
-	font-style: italic;
-}
+            .hljs-strong {
+                font-weight: bold;
+            }
+        </style>
 
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
+        <style>
+            /*
  * Markdown PDF CSS
  */
 
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans",
+                    sans-serif, "Meiryo";
+                padding: 0 12px;
+            }
 
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
+            pre {
+                background-color: #f8f8f8;
+                border: 1px solid #cccccc;
+                border-radius: 3px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                overflow-wrap: break-word;
+            }
 
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
+            pre:not(.hljs) {
+                padding: 23px;
+                line-height: 19px;
+            }
 
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
+            blockquote {
+                background: rgba(127, 127, 127, 0.1);
+                border-color: rgba(0, 122, 204, 0.5);
+            }
 
-.emoji {
-	height: 1.4em;
-}
+            .emoji {
+                height: 1.4em;
+            }
 
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
+            code {
+                font-size: 14px;
+                line-height: 19px;
+            }
 
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
+            /* for inline code */
+            :not(pre):not(.hljs) > code {
+                color: #c9ae75; /* Change the old color so it seems less like an error */
+                font-size: inherit;
+            }
 
-/* Page Break : use <div class="page"/> to insert page break
+            /* Page Break : use <div class="page"/> to insert page break
 -------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-<link rel="stylesheet" href="file:///c%3A/Users/ddssk/Documents/MotohaSystem/Project/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89/%E5%8E%9F%E7%A8%BF/20251226_%E3%81%93%E3%81%93%E3%83%91%E3%82%AB%E8%A8%BA%E6%96%AD/themes/markdown-pdf.css" type="text/css">
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="%E3%81%93%E3%81%93%E3%83%91%E3%82%AB%E8%A8%BA%E6%96%AD">ここパカ診断</h1>
-<h2 id="%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%C3%97%E9%98%B2%E7%81%BD%E3%81%A7%E8%87%AA%E5%88%86%E3%82%89%E3%81%97%E3%81%84%E5%82%99%E3%81%88%E3%82%92">性格診断×防災で、自分らしい備えを</h2>
-<p><strong>システムURL</strong>: <a href="https://kokopaka.bousai.live/">https://kokopaka.bousai.live/</a></p>
-<h2 id="1-%E3%83%81%E3%83%BC%E3%83%A0%E7%B4%B9%E4%BB%8B">1. チーム紹介</h2>
-<table>
-<thead>
-<tr>
-<th>氏名</th>
-<th>所属</th>
-<th>役割</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>上月康則</td>
-<td>徳島大学</td>
-<td>研究基盤・監修</td>
-</tr>
-<tr>
-<td>松家茉莉子</td>
-<td>徳島大学</td>
-<td>研究・分析</td>
-</tr>
-<tr>
-<td>清瀬由香</td>
-<td>Code for Tokushima</td>
-<td>企画・デザイン</td>
-</tr>
-<tr>
-<td>本橋大輔</td>
-<td>Code for Tokushima</td>
-<td>開発・実装</td>
-</tr>
-</tbody>
-</table>
-<p><strong>徳島大学 上月研究室</strong>の災害関連死研究を基盤としたプロジェクトです。</p>
-<h2 id="2-%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E6%AD%A9%E3%81%BF">2. プロジェクトの歩み</h2>
-<pre class="hljs"><code><div>上月研究室の研究成果（6年間の災害関連死研究）
+            .page {
+                page-break-after: always;
+            }
+        </style>
+        <link rel="stylesheet" href="markdown-pdf.css" type="text/css" />
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    </head>
+    <body>
+        <script>
+            mermaid.initialize({
+                startOnLoad: true,
+                theme:
+                    document.body.classList.contains("vscode-dark") ||
+                    document.body.classList.contains("vscode-high-contrast")
+                        ? "dark"
+                        : "default",
+            });
+        </script>
+        <h1 id="%E3%81%93%E3%81%93%E3%83%91%E3%82%AB%E8%A8%BA%E6%96%AD">ここパカ診断</h1>
+        <h2
+            id="%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%C3%97%E9%98%B2%E7%81%BD%E3%81%A7%E8%87%AA%E5%88%86%E3%82%89%E3%81%97%E3%81%84%E5%82%99%E3%81%88%E3%82%92"
+        >
+            性格診断×防災で、自分らしい備えを
+        </h2>
+        <p><strong>システムURL</strong>: <a href="https://kokopaka.bousai.live/">https://kokopaka.bousai.live/</a></p>
+        <h2 id="1-%E3%83%81%E3%83%BC%E3%83%A0%E7%B4%B9%E4%BB%8B">1. チーム紹介</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>氏名</th>
+                    <th>所属</th>
+                    <th>役割</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>上月康則</td>
+                    <td>徳島大学</td>
+                    <td>研究基盤・監修</td>
+                </tr>
+                <tr>
+                    <td>松家茉莉子</td>
+                    <td>徳島大学</td>
+                    <td>研究・分析</td>
+                </tr>
+                <tr>
+                    <td>清瀬由香</td>
+                    <td>Code for Tokushima</td>
+                    <td>企画・デザイン</td>
+                </tr>
+                <tr>
+                    <td>本橋大輔</td>
+                    <td>Code for Tokushima</td>
+                    <td>開発・実装</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>徳島大学 上月研究室</strong>の災害関連死研究を基盤としたプロジェクトです。</p>
+        <h2 id="2-%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E6%AD%A9%E3%81%BF">
+            2. プロジェクトの歩み
+        </h2>
+        <pre class="hljs"><code><div>上月研究室の研究成果（6年間の災害関連死研究）
         ↓
     実装方法を模索
         ↓
@@ -412,195 +430,266 @@ code {
         ↓
   2025年「ここパカ診断」で課題を解決
 </div></code></pre>
-<h2 id="3-%E3%81%93%E3%81%93%E3%83%91%E3%82%AB%E8%A8%BA%E6%96%AD%E3%81%AE3%E3%81%A4%E3%81%AE%E6%9F%B1">3. ここパカ診断の3つの柱</h2>
-<h3 id="3-1-%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88%E3%81%AE%E8%A8%AD%E8%A8%88">3-1. プライバシーファーストの設計</h3>
-<p>個人情報を極力持たない設計により、利用者も自治体も安心して使えるシステムを実現しています。</p>
-<ul>
-<li>位置情報は<strong>避難所単位</strong>でのみ保持（自宅住所は記録しない）</li>
-<li>SSOログイン情報（メールアドレス等）はシステムに保存しない</li>
-</ul>
-<img src="img/kokopaka-001.png" width="800px" alt="スクリーンショット: 避難所選択画面" style=" padding:20px;">
-<h4 id="%E8%87%AA%E6%B2%BB%E4%BD%93%E3%81%8C%E5%80%8B%E4%BA%BA%E6%83%85%E5%A0%B1%E3%82%92%E6%8C%81%E3%81%9F%E3%81%9A%E3%81%AB%E6%B8%88%E3%82%80">自治体が個人情報を持たずに済む</h4>
-<p>自治体に提供されるのは<strong>避難所単位の統計データのみ</strong>です。
-個人を特定できる情報は一切含まれないため、自治体は個人情報保護の負担なく防災計画に活用できます。</p>
-<h3 id="3-2-%E7%94%9F%E6%B4%BB%E5%86%8D%E5%BB%BA%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%8C%E3%82%8B%E3%82%A2%E3%83%B3%E3%82%B1%E3%83%BC%E3%83%88">3-2. 生活再建につながるアンケート</h3>
-<img src="img/kokopaka-002.png" width="250" alt="スクリーンショット: アンケート画面"  style="float: right; margin-right: 20px; padding:20px;">
-<p>前作「ぼうさいパッカーン」で開発した、災害関連死を防ぐためのアンケートシステムです。</p>
-<h4 id="%E4%B8%8A%E6%9C%88%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AE%E7%A0%94%E7%A9%B6%E6%88%90%E6%9E%9C%E3%81%AB%E5%9F%BA%E3%81%A5%E3%81%8F5%E3%81%A4%E3%81%AE%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA">上月研究室の研究成果に基づく5つのカテゴリ</h4>
-<p>災害関連死の要因分析から導き出された評価軸：</p>
-<table>
-<thead>
-<tr>
-<th>カテゴリ</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>家族のこと</td>
-<td>要介護者、乳幼児、持病など</td>
-</tr>
-<tr>
-<td>コミュニティ</td>
-<td>地域とのつながり、孤立リスク</td>
-</tr>
-<tr>
-<td>家屋</td>
-<td>住居の耐震性、備蓄状況</td>
-</tr>
-<tr>
-<td>情報</td>
-<td>情報収集力、支援制度の知識</td>
-</tr>
-<tr>
-<td>お金</td>
-<td>経済的な備え、保険加入状況</td>
-</tr>
-</tbody>
-</table>
-<h4 id="%E5%BE%97%E3%82%89%E3%82%8C%E3%82%8B%E3%82%82%E3%81%AE">得られるもの</h4>
-<ul>
-<li>防災上の<strong>強み</strong>と<strong>リスクポイント</strong>（弱点）の可視化</li>
-<li>性格特性と組み合わせた「自分ごと化」された防災アドバイス</li>
-<li>生活再建の助けとなる情報を事前に把握</li>
-</ul>
-<p><img src="img/kokopaka-003.png" height="300" alt="スクリーンショット: 診断結果画面" style="padding:20px;"><img src="img/kokopaka-004.png" height="300" alt="診断結果画面" style="padding:20px;"></p>
-<h3 id="3-3-%E5%9C%B0%E5%9F%9F%E4%BD%8F%E6%B0%91%E3%81%AE%E5%91%BD%E3%82%92%E5%AE%88%E3%82%8B%E9%81%BF%E9%9B%A3%E6%89%80%E6%9C%80%E9%81%A9%E5%8C%96%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5%E3%83%9C%E3%83%BC%E3%83%89">3-3. 地域住民の命を守る避難所最適化ダッシュボード</h3>
-<p>避難所に集まる人たちの特性を事前に把握し、適切な備蓄計画を支援します。</p>
-<img src="img/kokopaka-005.png" width="800" alt="スクリーンショット: 避難所ダッシュボード" style="padding:20px;">
-<h4 id="%E9%81%BF%E9%9B%A3%E6%89%80%E3%81%94%E3%81%A8%E3%81%AE%E8%A2%AB%E7%81%BD%E8%80%85%E5%82%BE%E5%90%91%E3%82%92%E4%BA%8B%E5%89%8D%E6%8A%8A%E6%8F%A1">避難所ごとの被災者傾向を事前把握</h4>
-<p>匿名統計データにより、避難所に集まる可能性のある被災者の傾向を分析できます。</p>
-<h4 id="%E6%B4%BB%E7%94%A8%E4%BE%8B">活用例</h4>
-<table>
-<thead>
-<tr>
-<th>傾向データ</th>
-<th>備蓄計画への反映</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>乳幼児が多い</td>
-<td>ミルク・おむつの備蓄増</td>
-</tr>
-<tr>
-<td>糖尿病患者がいる</td>
-<td>インシュリンの確保</td>
-</tr>
-<tr>
-<td>透析患者がいる</td>
-<td>救助・搬送計画の事前策定</td>
-</tr>
-<tr>
-<td>高齢者が多い</td>
-<td>バリアフリー対応・介護用品</td>
-</tr>
-</tbody>
-</table>
-<p>エビデンスに基づく防災計画の立案が可能になります。</p>
-<img src="img/kokopaka-006.png" width="800" alt="避難所統計データ" style="padding:20px;">
-<h2 id="4-%E5%89%AF%E7%94%A3%E7%89%A9%E9%81%BF%E9%9B%A3%E6%89%80%E6%A4%9C%E7%B4%A2apijp-shelter-api">4. 副産物：避難所検索API「jp-shelter-api」</h2>
-<p>本システムの開発過程で、避難所APIを開発・公開しました。すでに利用可能です。</p>
-<table>
-<thead>
-<tr>
-<th>項目</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>データソース</td>
-<td>国土地理院 + 総務省</td>
-</tr>
-<tr>
-<td>形式</td>
-<td>GeoJSON</td>
-</tr>
-<tr>
-<td>ホスティング</td>
-<td>GitHub Pages（無料公開）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%82%8B%E6%83%85%E5%A0%B1">取得できる情報</h3>
-<ul>
-<li>指定避難所・緊急避難場所の位置情報</li>
-<li>対応災害種別（津波・洪水・地震など）</li>
-<li>自治体コードによる検索</li>
-</ul>
-<h3 id="api%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88">APIエンドポイント</h3>
-<p>https://motohasystem.github.io/jp-shelter-api/api/v0/{type}/{cityCode}.json</p>
-<table>
-<thead>
-<tr>
-<th>type</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>evacuation</td>
-<td>指定避難所</td>
-</tr>
-<tr>
-<td>emergency</td>
-<td>緊急避難場所</td>
-</tr>
-</tbody>
-</table>
-<p><strong>詳細</strong>: <a href="https://zenn.dev/motohasystem/articles/05-2025-11-shelter-api">https://zenn.dev/motohasystem/articles/05-2025-11-shelter-api</a></p>
-<h3 id="%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%B4%BB%E7%94%A8">オープンデータの活用</h3>
-<p>避難所検索APIでは、以下２件のオープンデータを組み合わせてAPIとして公開しています。</p>
-<ul>
-<li><strong>指定緊急避難場所・指定避難所データ</strong> (国土地理院)
-<ul>
-<li><a href="https://www.gsi.go.jp/bousaichiri/hinanbasho.html">https://www.gsi.go.jp/bousaichiri/hinanbasho.html</a></li>
-</ul>
-</li>
-<li><strong>全国地方公共団体コード</strong> (総務省)
-<ul>
-<li><a href="https://www.soumu.go.jp/denshijiti/code.html">https://www.soumu.go.jp/denshijiti/code.html</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="5-%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E6%A7%8B%E6%88%90%E5%9B%B3">5. システム構成図</h2>
-<img src="./img/ここパカ診断system-architecture.png" width="800" alt="システム構成図" style="padding:20px;">
-<h2 id="6-%E4%BB%8A%E5%BE%8C%E3%81%AE%E5%B1%95%E6%9C%9B">6. 今後の展望</h2>
-<img src="img/kokopaka-007.png" width="250" alt="スクリーンショット: ログイン画面" style="float: right; margin-right: 20px; padding:20px;">
-<h3 id="%E6%A9%9F%E8%83%BD%E6%8B%A1%E5%BC%B5">機能拡張</h3>
-<ul>
-<li>対応SSO認証の拡大</li>
-<li>対応する性格診断の追加</li>
-<li>付随情報（健康状態、家族構成等）の拡充</li>
-</ul>
-<h3 id="%E9%80%A3%E6%90%BA%E5%BC%B7%E5%8C%96">連携強化</h3>
-<ul>
-<li>自治体向けダッシュボードの本格運用</li>
-<li>他の防災アプリ・システムとの連携</li>
-<li><strong>避難訓練との連携</strong>によるデータ品質向上</li>
-</ul>
-<h2 id="7-%E3%81%BE%E3%81%A8%E3%82%81%E3%81%93%E3%81%93%E3%83%91%E3%82%AB%E8%A8%BA%E6%96%AD%E3%81%8C%E7%9B%AE%E6%8C%87%E3%81%99%E3%82%82%E3%81%AE">7. まとめ：ここパカ診断が目指すもの</h2>
-<ol>
-<li>
-<p><strong>自分らしい備え</strong>
-心理特性と防災意識を結びつけ、パーソナライズされた対策を提案</p>
-</li>
-<li>
-<p><strong>データで支える地域防災</strong>
-匿名化された統計データを自治体の防災計画に活用</p>
-</li>
-<li>
-<p><strong>研究と実践の橋渡し</strong>
-上月研究室の災害関連死研究を、誰もが使えるツールとして社会実装</p>
-</li>
-</ol>
-<p><strong>ここ</strong>にあるべき備えをひらく、
-ひとりひとりの<strong>こころ</strong>をひらく、
-明日の<strong>こころがまえ</strong>をひらく、</p>
-<p>全部まとめて、<strong>パッカーン</strong>。</p>
-<p><em>2025年12月26日</em>
-<em>徳島大学 上月研究室 × Code for Tokushima</em></p>
-
-</body>
+        <h2 id="3-%E3%81%93%E3%81%93%E3%83%91%E3%82%AB%E8%A8%BA%E6%96%AD%E3%81%AE3%E3%81%A4%E3%81%AE%E6%9F%B1">
+            3. ここパカ診断の3つの柱
+        </h2>
+        <h3
+            id="3-1-%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88%E3%81%AE%E8%A8%AD%E8%A8%88"
+        >
+            3-1. プライバシーファーストの設計
+        </h3>
+        <p>個人情報を極力持たない設計により、利用者も自治体も安心して使えるシステムを実現しています。</p>
+        <ul>
+            <li>位置情報は<strong>避難所単位</strong>でのみ保持（自宅住所は記録しない）</li>
+            <li>SSOログイン情報（メールアドレス等）はシステムに保存しない</li>
+        </ul>
+        <img src="img/kokopaka-001.png" width="800px" alt="スクリーンショット: 避難所選択画面" style="padding: 20px" />
+        <h4
+            id="%E8%87%AA%E6%B2%BB%E4%BD%93%E3%81%8C%E5%80%8B%E4%BA%BA%E6%83%85%E5%A0%B1%E3%82%92%E6%8C%81%E3%81%9F%E3%81%9A%E3%81%AB%E6%B8%88%E3%82%80"
+        >
+            自治体が個人情報を持たずに済む
+        </h4>
+        <p>
+            自治体に提供されるのは<strong>避難所単位の統計データのみ</strong>です。
+            個人を特定できる情報は一切含まれないため、自治体は個人情報保護の負担なく防災計画に活用できます。
+        </p>
+        <h3
+            id="3-2-%E7%94%9F%E6%B4%BB%E5%86%8D%E5%BB%BA%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%8C%E3%82%8B%E3%82%A2%E3%83%B3%E3%82%B1%E3%83%BC%E3%83%88"
+        >
+            3-2. 生活再建につながるアンケート
+        </h3>
+        <img
+            src="img/kokopaka-002.png"
+            width="250"
+            alt="スクリーンショット: アンケート画面"
+            style="float: right; margin-right: 20px; padding: 20px"
+        />
+        <p>前作「ぼうさいパッカーン」で開発した、災害関連死を防ぐためのアンケートシステムです。</p>
+        <h4
+            id="%E4%B8%8A%E6%9C%88%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AE%E7%A0%94%E7%A9%B6%E6%88%90%E6%9E%9C%E3%81%AB%E5%9F%BA%E3%81%A5%E3%81%8F5%E3%81%A4%E3%81%AE%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA"
+        >
+            上月研究室の研究成果に基づく5つのカテゴリ
+        </h4>
+        <p>災害関連死の要因分析から導き出された評価軸：</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>カテゴリ</th>
+                    <th>内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>家族のこと</td>
+                    <td>要介護者、乳幼児、持病など</td>
+                </tr>
+                <tr>
+                    <td>コミュニティ</td>
+                    <td>地域とのつながり、孤立リスク</td>
+                </tr>
+                <tr>
+                    <td>家屋</td>
+                    <td>住居の耐震性、備蓄状況</td>
+                </tr>
+                <tr>
+                    <td>情報</td>
+                    <td>情報収集力、支援制度の知識</td>
+                </tr>
+                <tr>
+                    <td>お金</td>
+                    <td>経済的な備え、保険加入状況</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4 id="%E5%BE%97%E3%82%89%E3%82%8C%E3%82%8B%E3%82%82%E3%81%AE">得られるもの</h4>
+        <ul>
+            <li>防災上の<strong>強み</strong>と<strong>リスクポイント</strong>（弱点）の可視化</li>
+            <li>性格特性と組み合わせた「自分ごと化」された防災アドバイス</li>
+            <li>生活再建の助けとなる情報を事前に把握</li>
+        </ul>
+        <p>
+            <img
+                src="img/kokopaka-003.png"
+                height="300"
+                alt="スクリーンショット: 診断結果画面"
+                style="padding: 20px"
+            /><img src="img/kokopaka-004.png" height="300" alt="診断結果画面" style="padding: 20px" />
+        </p>
+        <h3
+            id="3-3-%E5%9C%B0%E5%9F%9F%E4%BD%8F%E6%B0%91%E3%81%AE%E5%91%BD%E3%82%92%E5%AE%88%E3%82%8B%E9%81%BF%E9%9B%A3%E6%89%80%E6%9C%80%E9%81%A9%E5%8C%96%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5%E3%83%9C%E3%83%BC%E3%83%89"
+        >
+            3-3. 地域住民の命を守る避難所最適化ダッシュボード
+        </h3>
+        <p>避難所に集まる人たちの特性を事前に把握し、適切な備蓄計画を支援します。</p>
+        <img
+            src="img/kokopaka-005.png"
+            width="800"
+            alt="スクリーンショット: 避難所ダッシュボード"
+            style="padding: 20px"
+        />
+        <h4
+            id="%E9%81%BF%E9%9B%A3%E6%89%80%E3%81%94%E3%81%A8%E3%81%AE%E8%A2%AB%E7%81%BD%E8%80%85%E5%82%BE%E5%90%91%E3%82%92%E4%BA%8B%E5%89%8D%E6%8A%8A%E6%8F%A1"
+        >
+            避難所ごとの被災者傾向を事前把握
+        </h4>
+        <p>匿名統計データにより、避難所に集まる可能性のある被災者の傾向を分析できます。</p>
+        <h4 id="%E6%B4%BB%E7%94%A8%E4%BE%8B">活用例</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>傾向データ</th>
+                    <th>備蓄計画への反映</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>乳幼児が多い</td>
+                    <td>ミルク・おむつの備蓄増</td>
+                </tr>
+                <tr>
+                    <td>糖尿病患者がいる</td>
+                    <td>インシュリンの確保</td>
+                </tr>
+                <tr>
+                    <td>透析患者がいる</td>
+                    <td>救助・搬送計画の事前策定</td>
+                </tr>
+                <tr>
+                    <td>高齢者が多い</td>
+                    <td>バリアフリー対応・介護用品</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>エビデンスに基づく防災計画の立案が可能になります。</p>
+        <img src="img/kokopaka-006.png" width="800" alt="避難所統計データ" style="padding: 20px" />
+        <h2 id="4-%E5%89%AF%E7%94%A3%E7%89%A9%E9%81%BF%E9%9B%A3%E6%89%80%E6%A4%9C%E7%B4%A2apijp-shelter-api">
+            4. 副産物：避難所検索API「jp-shelter-api」
+        </h2>
+        <p>本システムの開発過程で、避難所APIを開発・公開しました。すでに利用可能です。</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>データソース</td>
+                    <td>国土地理院 + 総務省</td>
+                </tr>
+                <tr>
+                    <td>形式</td>
+                    <td>GeoJSON</td>
+                </tr>
+                <tr>
+                    <td>ホスティング</td>
+                    <td>GitHub Pages（無料公開）</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%82%8B%E6%83%85%E5%A0%B1">取得できる情報</h3>
+        <ul>
+            <li>指定避難所・緊急避難場所の位置情報</li>
+            <li>対応災害種別（津波・洪水・地震など）</li>
+            <li>自治体コードによる検索</li>
+        </ul>
+        <h3 id="api%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88">APIエンドポイント</h3>
+        <p>https://motohasystem.github.io/jp-shelter-api/api/v0/{type}/{cityCode}.json</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>type</th>
+                    <th>説明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>evacuation</td>
+                    <td>指定避難所</td>
+                </tr>
+                <tr>
+                    <td>emergency</td>
+                    <td>緊急避難場所</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <strong>詳細</strong>:
+            <a href="https://zenn.dev/motohasystem/articles/05-2025-11-shelter-api"
+                >https://zenn.dev/motohasystem/articles/05-2025-11-shelter-api</a
+            >
+        </p>
+        <h3 id="%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%B4%BB%E7%94%A8">
+            オープンデータの活用
+        </h3>
+        <p>避難所検索APIでは、以下２件のオープンデータを組み合わせてAPIとして公開しています。</p>
+        <ul>
+            <li>
+                <strong>指定緊急避難場所・指定避難所データ</strong> (国土地理院)
+                <ul>
+                    <li>
+                        <a href="https://www.gsi.go.jp/bousaichiri/hinanbasho.html"
+                            >https://www.gsi.go.jp/bousaichiri/hinanbasho.html</a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>全国地方公共団体コード</strong> (総務省)
+                <ul>
+                    <li>
+                        <a href="https://www.soumu.go.jp/denshijiti/code.html"
+                            >https://www.soumu.go.jp/denshijiti/code.html</a
+                        >
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="5-%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E6%A7%8B%E6%88%90%E5%9B%B3">5. システム構成図</h2>
+        <img src="./img/ここパカ診断system-architecture.png" width="800" alt="システム構成図" style="padding: 20px" />
+        <h2 id="6-%E4%BB%8A%E5%BE%8C%E3%81%AE%E5%B1%95%E6%9C%9B">6. 今後の展望</h2>
+        <img
+            src="img/kokopaka-007.png"
+            width="250"
+            alt="スクリーンショット: ログイン画面"
+            style="float: right; margin-right: 20px; padding: 20px"
+        />
+        <h3 id="%E6%A9%9F%E8%83%BD%E6%8B%A1%E5%BC%B5">機能拡張</h3>
+        <ul>
+            <li>対応SSO認証の拡大</li>
+            <li>対応する性格診断の追加</li>
+            <li>付随情報（健康状態、家族構成等）の拡充</li>
+        </ul>
+        <h3 id="%E9%80%A3%E6%90%BA%E5%BC%B7%E5%8C%96">連携強化</h3>
+        <ul>
+            <li>自治体向けダッシュボードの本格運用</li>
+            <li>他の防災アプリ・システムとの連携</li>
+            <li><strong>避難訓練との連携</strong>によるデータ品質向上</li>
+        </ul>
+        <h2
+            id="7-%E3%81%BE%E3%81%A8%E3%82%81%E3%81%93%E3%81%93%E3%83%91%E3%82%AB%E8%A8%BA%E6%96%AD%E3%81%8C%E7%9B%AE%E6%8C%87%E3%81%99%E3%82%82%E3%81%AE"
+        >
+            7. まとめ：ここパカ診断が目指すもの
+        </h2>
+        <ol>
+            <li>
+                <p><strong>自分らしい備え</strong> 心理特性と防災意識を結びつけ、パーソナライズされた対策を提案</p>
+            </li>
+            <li>
+                <p><strong>データで支える地域防災</strong> 匿名化された統計データを自治体の防災計画に活用</p>
+            </li>
+            <li>
+                <p>
+                    <strong>研究と実践の橋渡し</strong> 上月研究室の災害関連死研究を、誰もが使えるツールとして社会実装
+                </p>
+            </li>
+        </ol>
+        <p>
+            <strong>ここ</strong>にあるべき備えをひらく、 ひとりひとりの<strong>こころ</strong>をひらく、
+            明日の<strong>こころがまえ</strong>をひらく、
+        </p>
+        <p>全部まとめて、<strong>パッカーン</strong>。</p>
+        <p><em>2025年12月26日</em> <em>徳島大学 上月研究室 × Code for Tokushima</em></p>
+    </body>
 </html>
